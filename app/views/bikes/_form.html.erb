@@ -1,0 +1,50 @@
+<%= form_for(@bike, html: { class: "form-horizontal", role: "form" }) do |f| %>
+
+  <%# Alert showing errors for this form %>
+  <% if @bike.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@bike.errors.count, "error") %> prohibited this bike from being saved:</h4>
+
+      <ul>
+      <% @bike.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%# kind %>
+  <div class="form-group">
+    <%= f.label :kind, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :kind, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <%# brand %>
+  <div class="form-group">
+    <%= f.label :brand, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :brand, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <%# component %>
+  <div class="form-group">
+    <%= f.label :component, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :component, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <%# Submit %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end -%>
